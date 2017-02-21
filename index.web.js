@@ -1,12 +1,24 @@
-/**
- * React Native for Web Starter App
- * Follow me https://twitter.com/grabthecode
- */
+import React from 'react';
+import {
+  AppRegistry,
+  Text,
+} from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import { AppRegistry } from 'react-native';
-import { App } from './src/scenes';
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
+  render() {
+    return <Text>Hello, Navigation!</Text>;
+  }
+}
 
-AppRegistry.registerComponent('App', () => App);
-AppRegistry.runApplication('App', {
+const SimpleApp = StackNavigator({
+  Home: { screen: HomeScreen },
+});
+
+AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
+AppRegistry.runApplication('SimpleApp', {
   rootTag: document.getElementById('react-root')
 });
